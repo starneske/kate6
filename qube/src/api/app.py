@@ -10,9 +10,9 @@ from flask_restful_swagger_2 import Api, swagger
 from pkg_resources import resource_filename
 from qube.src.api import app  # pylint: disable=import-self
 from qube.src.api.flask_swagger_ui import get_swaggerui_blueprint
-from qube.src.api.hellocontroller import HelloController
-from qube.src.api.hellocontroller import HelloItemController
-from qube.src.api.versioncontroller import HelloItemVersionController
+from qube.src.api.kate6controller import kate6Controller
+from qube.src.api.kate6controller import kate6ItemController
+from qube.src.api.versioncontroller import kate6ItemVersionController
 from qube.src.commons.log import Log as LOG
 
 logging_config = resource_filename(
@@ -64,9 +64,9 @@ docs.append(api.get_swagger_doc())
 (docs, API_URL+'.json', title='Example', api_version='0.1'))
 """
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
-api.add_resource(HelloItemVersionController, '/v1/hello/version')
-api.add_resource(HelloController, '/v1/hello')
-api.add_resource(HelloItemController, '/v1/hello/<string:entity_id>')
+api.add_resource(kate6ItemVersionController, '/v1/kate6/version')
+api.add_resource(kate6Controller, '/v1/kate6')
+api.add_resource(kate6ItemController, '/v1/kate6/<string:entity_id>')
 
 
 def main():
